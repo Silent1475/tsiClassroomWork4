@@ -1,0 +1,33 @@
+code {
+  font-family: monospace;
+  background-color: #1c1c1c;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: block;
+  overflow-x: auto;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.syntax-keyword {
+  color: #0077aa;
+  font-weight: bold;
+}
+
+.syntax-string {
+  color: #22863a;
+}
+
+.syntax-number {
+  color: #a67f59;
+}
+
+body {
+  background-color: black;
+  color: green;
+  font-family: monospace;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
