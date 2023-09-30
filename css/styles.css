@@ -8,6 +8,7 @@ code {
   overflow-x: auto;
   line-height: 1.4;
   margin-bottom: 20px;
+  text-indent: 0px;
 }
 
 .syntax-keyword {
@@ -26,8 +27,28 @@ code {
 body {
   background-color: black;
   color: green;
+  text-indent: 20px;
   font-family: monospace;
   font-size: 14px;
-  margin: 0;
-  padding: 0;
+  margin: 80;
+  padding: 80;
+}
+
+.subscribe-btn {
+  background-color: #007bff; 
+  color: white; 
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.subscribe-btn:hover {
+background-color: #E5B80B;
+}
+
+.box {
+   width: 100px;
+   height: 100px;
+   background-color: #f00;
+   position: absolute;
 }
