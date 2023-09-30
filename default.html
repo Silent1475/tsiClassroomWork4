@@ -3,24 +3,55 @@
 
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>A Basic HTML5 Template</title>
-  <meta name="description" content="A simple HTML5 Template for new projects.">
-  <meta name="author" content="SitePoint">
+    <title>A Basic HTML5 Template</title>
+    <meta name="description" content="A simple HTML5 Template for new projects.">
+    <meta name="author" content="SitePoint">
 
-  <meta property="og:title" content="A Basic HTML5 Template">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
-  <meta property="og:description" content="A simple HTML5 Template for new projects.">
-  <meta property="og:image" content="image.png">
+    <meta property="og:title" content="A Basic HTML5 Template">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
+    <meta property="og:description" content="A simple HTML5 Template for new projects.">
+    <meta property="og:image" content="image.png">
 
-  <link rel="icon" href="/favicon.ico">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script type="text/javascript">
+         <!--
+        var imgObj = null;
+
+        function init() {
+            imgObj = document.getElementById('myImage');
+            imgObj.style.position = 'relative';
+            imgObj.style.left = '0px';
+        }
+        function moveRight() {
+            imgObj.style.left = parseInt(imgObj.style.left) + 10 + 'px';
+        }
+
+        window.onload = init;
+        //-->
+    </script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("div").animate({
+                    left: '250px',
+                    opacity: '0.5',
+                    height: '150px',
+                    width: '150px'
+                });
+            });
+        });
+    </script>
 
 </head>
 
@@ -178,8 +209,8 @@
         Used with Partials (see previous section), the @import directive allows you to import your partial files into the current file, to build one single CSS file. Be mindful of how many imports you're using as an HTTP request will be generated for each one.
     </p>
 
-    <p>// _reset.scss</p>
     <code>
+        <p>// _reset.scss</p>
         <p>
             html,<br>
             body, <br>
@@ -189,11 +220,10 @@
             padding: 0; <br>
             }
         </p>
-    </code>
-    <p> // basefile.scss</p>
 
-    <p>    @import 'reset';</p>
-    <code>
+        <p> // basefile.scss</p>
+
+        <p>    @import 'reset';</p>
         <p>
             body { <br>
             font: 100% Helvetica, sans-serif;<br>
@@ -282,6 +312,13 @@
     <p>
         In addition, Sass includes a few built-in functions to help manipulate numbers. Functions like percentage(), floor() and round() to name a few.
     </p>
+    <h2><b>Subscribe for our newsletter here!</b></h2>
+    <form action="ExampleForAction.php" method="post">
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        <br>
+        <input type="submit" class="subscribe-btn" value="Subscribe">
+    </form>
     <h1>Tammy Coron</h1>
 
     <p>
@@ -290,8 +327,44 @@
         </b>
     </p>
 
-    <center><img src="hackerman.jpg" alt="Hackerman image" width="300" height="200"></center>
+    <form>
+        <img id="myImage" src="images/matrix.gif" width="300" height="200" />
+        <p>Click button below to move the image to right</p>
+        <input type="button" value="Click Me" onclick="moveRight();" />
+    </form>
+
+    <h2>Funny animation</h2>
+    <div class="box"></div>
+    <button style="margin-top:110px" id="startAnimation">Start Animation</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Function to animate the box
+            function animateBox() {
+                var left = 0;
+                var top = 0;
+
+                $(".box").animate({
+                    left: left + "px",
+                    top: top + "px"
+                }, 1000, function () {
+                    // Reverse direction when the animation completes
+                    var temp = left;
+                    left = top;
+                    top = temp;
+                    animateBox();
+                });
+            }
+
+            // Start the animation when the button is clicked
+            $("#startAnimation").click(function () {
+                animateBox();
+            });
+        });
+    </script>
+
+    <center><img src="images/hackerman.jpg" alt="Hackerman image" width="300" height="200"></center>
 
 </body>
 </html>
-
